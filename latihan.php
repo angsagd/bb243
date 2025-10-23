@@ -1,7 +1,7 @@
 <?php
 // autoload / load Class otomatis
 spl_autoload_register(function($className) {
-    require_once $className . '.php';
+    require_once 'class/' . $className . '.php';
 });
 
 // membuat object
