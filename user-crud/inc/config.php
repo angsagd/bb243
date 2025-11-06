@@ -11,7 +11,7 @@ spl_autoload_register(function ($class_name) {
 const DB_HOST = 'localhost';
 const DB_USER = 'webuser';       // sesuaikan dengan user MySQL Anda
 const DB_PASS = 'webuser';       // sesuaikan dengan password MySQL Anda
-const DB_NAME = 'ba243';         // sesuaikan dengan nama database yang sudah dibuat
+const DB_NAME = 'bb243';         // sesuaikan dengan nama database yang sudah dibuat
 
 // Define base URL
 
