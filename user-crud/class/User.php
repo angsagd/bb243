@@ -25,20 +25,20 @@ class User {
   public function getAll() {
     $sql = "SELECT * FROM users ORDER BY id ASC";
     $stmt = $this->db->query($sql);
-    return $stmt->fetch_all(MYSQLI_ASSOC);
+    // return $stmt->fetch_all(MYSQLI_ASSOC);
 
     //* Cara PDO
-    // return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   // Set user properties by ID
   public function setById($id) {
-    $sql = "SELECT * FROM users WHERE id = $id LIMIT 1";
-    // $sql = "SELECT * FROM users WHERE id = :id LIMIT 1";
+    // $sql = "SELECT * FROM users WHERE id = $id LIMIT 1";
+    $sql = "SELECT * FROM users WHERE id = :id LIMIT 1";
     $stmt = $this->db->query($sql, ['id' => $id]);
-    $user = $stmt->fetch_assoc();
+    // $user = $stmt->fetch_assoc();
 
-    // $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
       $this->id = $user['id'];
