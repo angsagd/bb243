@@ -20,6 +20,24 @@ class User {
   }
 
   // Authenticate user credentials
+  public function authenticate($username, $password) {
+    $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
+    $stmt = $this->db->query($sql, ['username' => $username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['password'])) {
+      // set SESSION user login
+      $_SESSION['user']['id'] = $user['id'];
+      $_SESSION['user']['username'] = $user['username'];
+      $_SESSION['user']['fullname'] = $user['fullname'];
+      $_SESSION['user']['city'] = $user['city'];
+      $_SESSION['user']['created_at'] = $user['created_at'];
+      $_SESSION['user']['last_login'] = date('Y-m-d H:i:s');
+      return true;
+    }
+
+    return false;
+  }
 
   // Get all users
   public function getAll() {

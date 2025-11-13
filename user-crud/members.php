@@ -4,6 +4,7 @@
 require_once 'inc/config.php';
 
 // check if user is logged in
+Utility::checkLogin();
 
 // load all members
 $user = new User;

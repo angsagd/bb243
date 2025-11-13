@@ -1,6 +1,7 @@
 <?php
 
 // Start session
+session_start();
 
 // simple autoload
 spl_autoload_register(function ($class_name) {
@@ -14,6 +15,7 @@ const DB_PASS = 'webuser';       // sesuaikan dengan password MySQL Anda
 const DB_NAME = 'bb243';         // sesuaikan dengan nama database yang sudah dibuat
 
 // Define base URL
+const BASE_URL = 'http://localhost:8000/user-crud/'; // sesuaikan dengan nama folder
 
 // navigasi config
 const NAV_PAGES = [
