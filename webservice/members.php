@@ -19,9 +19,13 @@ $users = $data->users;
   <header>
     <h1>Members</h1>
   </header>
+  <nav>
+      <ul>
+          <li><a href="members.php">Members</a></li>
+      </ul>
+  </nav>
   <main>
     <section>
-      <h2>Member Table</h2>
       <div class="row"></div>
       <table>
         <thead>
@@ -38,7 +42,7 @@ $users = $data->users;
 <?php
 foreach ($users as $user) {
   echo '<tr>';
-  echo '<td>' . $user->username . '</td>';
+  echo '<td><a href="profile.php?id=' . $user->id . '">' . $user->username . '</a></td>';
   echo '<td>' . $user->role . '</td>';
   echo '<td>' . $user->firstName . ' ' . $user->lastName . '</td>';
   echo '<td>' . $user->email . '</td>';

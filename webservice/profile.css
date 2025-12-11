@@ -1,0 +1,99 @@
+/* ============================
+   User Profile Layout
+   ============================ */
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 900px;
+  margin: 20px auto 0;
+}
+
+.profile-left {
+  flex: 1 1 220px;
+  max-width: 260px;
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+}
+
+.profile-right {
+  flex: 2 1 420px;
+}
+
+.profile-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #234;
+}
+
+.profile-name {
+  margin: 10px 0 5px;
+}
+
+.profile-username {
+  margin: 0 0 5px;
+  color: #666;
+}
+
+.profile-role {
+  margin: 0 0 5px;
+  font-weight: bold;
+  color: #234;
+}
+
+.profile-gender-age {
+  margin: 0;
+  color: #555;
+}
+
+.profile-section-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.profile-row {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.profile-row .label {
+  width: 150px;
+  font-weight: bold;
+  color: #555;
+}
+
+.profile-row .value {
+  flex: 1;
+  color: #333;
+  word-break: break-word;
+}
+
+/* Responsif sederhana */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .profile-left,
+  .profile-right {
+    max-width: 100%;
+  }
+
+  .profile-row {
+    flex-direction: column;
+  }
+
+  .profile-row .label {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
