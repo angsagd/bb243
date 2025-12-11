@@ -1,5 +1,11 @@
 <?php
 
+$url = 'https://dummyjson.com/users';
+$response = file_get_contents($url);
+
+$data = json_decode($response);
+$users = $data->users;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,18 +26,25 @@
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Username</th>
+            <th>Role</th>
             <th>Full Name</th>
-            <th>City</th>
-            <th>Join Date</th>
-            <th>&nbsp;</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr>
         </thead>
         <tbody>
         <!-- Show members data -->
 <?php
-
+foreach ($users as $user) {
+  echo '<tr>';
+  echo '<td>' . $user->username . '</td>';
+  echo '<td>' . $user->role . '</td>';
+  echo '<td>' . $user->firstName . ' ' . $user->lastName . '</td>';
+  echo '<td>' . $user->email . '</td>';
+  echo '<td>' . $user->phone . '</td>';
+  echo '</tr>';
+}
 ?>
         </tbody>
       </table>
