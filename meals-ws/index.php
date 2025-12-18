@@ -13,10 +13,17 @@
   <main>
     <section id="meal-index">
       <div class="meal-letters">
-
+<?php
+for ($i=65;$i<=90;$i++) {
+  echo '<a href="?f=' . chr($i+32) . '">' . chr($i) . '</a> ';
+}
+?>
       </div>
       <div class="meal-search">
-        
+        <form action="">
+          <input type="text" name="s" placeholder="Type something here ..." required>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </section>
   </main>
