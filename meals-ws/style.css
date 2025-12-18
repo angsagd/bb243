@@ -39,3 +39,34 @@ main {
   border: 1px solid #aaa;
   cursor: pointer;
 }
+
+#meal-list {
+  text-align: center;
+  margin: 20px;
+}
+.meal-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.meal-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 200px;
+  box-shadow: 1px 2px 5px #aaa;
+}
+.meal-card-image img {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+.meal-card-title {
+  padding: 10px;
+  text-align: center;
+}
+.meal-card-title a {
+  text-decoration: none;
+  color: #345;
+  font-weight: bold;
+}

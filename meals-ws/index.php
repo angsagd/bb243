@@ -1,6 +1,7 @@
 <?php
 include_once 'config.php';
 $meals = [];
+$s = '';
 
 if(isset($_GET['f'])) {
   $f = $_GET['f'];
@@ -8,8 +9,8 @@ if(isset($_GET['f'])) {
   $data = fetch_data($url);
   $meals = $data['meals'];
 } else if(isset($_GET['s'])) {
-  $f = $_GET['s'];
-  $url = $api_url . 'search.php?s=' . $f;
+  $s = $_GET['s'];
+  $url = $api_url . 'search.php?s=' . $s;
   $data = fetch_data($url);
   $meals = $data['meals'];
 }
@@ -37,7 +38,7 @@ for ($i=65;$i<=90;$i++) {
       </div>
       <div class="meal-search">
         <form action="">
-          <input type="text" name="s" placeholder="Type something here ..." required>
+          <input type="text" name="s" placeholder="Type something here ..." value="<?= $s ?>" required>
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -48,7 +49,14 @@ for ($i=65;$i<=90;$i++) {
 if($meals) {
   echo '<div class="meal-container">';
   foreach ($meals as $meal) {
-    echo $meal['strMeal'] . "<br>\n";
+    echo '<div class="meal-card">';
+    echo '<div class="meal-card-image">';
+    echo '<img src="'.$meal['strMealThumb'].'" alt="'.$meal['strMeal'].'">';
+    echo '</div>';
+    echo '<div class="meal-card-title">';
+    echo '<a href="detail.php?i='.$meal['idMeal'].'">'.$meal['strMeal'].'</a>';
+    echo '</div>';
+    echo '</div>';
   }
   echo '</div>';
 } else {
