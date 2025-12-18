@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<?php
+include_once 'config.php';
+$meals = [];
+
+if(isset($_GET['f'])) {
+  $f = $_GET['f'];
+  $url = $api_url . 'search.php?f=' . $f;
+  $data = fetch_data($url);
+  $meals = $data['meals'];
+} else if(isset($_GET['s'])) {
+  $f = $_GET['s'];
+  $url = $api_url . 'search.php?s=' . $f;
+  $data = fetch_data($url);
+  $meals = $data['meals'];
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -25,6 +41,21 @@ for ($i=65;$i<=90;$i++) {
           <button type="submit">Submit</button>
         </form>
       </div>
+    </section>
+    <section id="meal-list">
+<?php
+
+if($meals) {
+  echo '<div class="meal-container">';
+  foreach ($meals as $meal) {
+    echo $meal['strMeal'] . "<br>\n";
+  }
+  echo '</div>';
+} else {
+  echo '<p class="meal-empty">Cari resep berdasarkan huruf awal atau kata kunci.</p>';
+}
+
+?>
     </section>
   </main>
 </body>
