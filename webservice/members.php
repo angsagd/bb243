@@ -1,7 +1,15 @@
 <?php
 
 $url = 'https://dummyjson.com/users';
-$response = file_get_contents($url);
+
+// Inisialisasi cURL
+$ch = curl_init($url);
+
+// Atur opsi cURL
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Eksekusi
+$response = curl_exec($ch);
 
 $data = json_decode($response);
 $users = $data->users;
